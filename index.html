@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курочка дома - магазин свежей курицы</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <h1 class="logo">Курочка дома</h1>
+      <button class="cart-toggle" id="cart-toggle">
+        Корзина: <span id="cart-count">0</span> шт / <span id="cart-sum">0</span> ₽
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="catalog" aria-label="Каталог товаров">
+      <h2 class="section-title">Наши товары</h2>
+      <div class="catalog__grid" id="catalog-grid">
+      </div>
+    </section>
+
+    <section class="cart" id="cart-section" aria-label="Корзина">
+      <h2 class="section-title">Корзина</h2>
+      <div id="cart-items">
+        <p id="cart-empty">Корзина пуста</p>
+      </div>
+      <div class="cart__total">
+        Итого: <span id="cart-total">0</span> ₽
+      </div>
+      <button class="btn btn-order" id="open-order-form" disabled>Оформить заказ</button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Курочка дома, 2026</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="order-modal">
+    <div class="modal__content">
+      <button class="modal__close" id="close-order-modal" aria-label="Закрыть">&times;</button>
+      <h2>Оформление заказа</h2>
+      <form id="order-form">
+        <label for="first-name">Имя</label>
+        <input type="text" id="first-name" name="firstName" required>
+
+        <label for="last-name">Фамилия</label>
+        <input type="text" id="last-name" name="lastName" required>
+
+        <label for="address">Адрес доставки</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="phone">Контактный телефон</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <button type="submit" class="btn">Создать заказ</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="success-modal">
+    <div class="modal__content modal__content--small">
+      <p class="success-text">Заказ создан!</p>
+      <button class="btn" id="close-success-modal">Ок</button>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

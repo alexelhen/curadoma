@@ -1,4 +1,4 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const catalogGrid = document.getElementById('catalog-grid');
 const cartItemsBox = document.getElementById('cart-items');
@@ -12,6 +12,10 @@ const cartToggleBtn = document.getElementById('cart-toggle');
 const cartSection = document.getElementById('cart-section');
 
 const orderInputs = document.querySelectorAll('#order-form input');
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 function renderCatalog() {
   catalogGrid.innerHTML = '';
@@ -95,6 +99,7 @@ function addToCart(id) {
     cart.push({ id: id, quantity: 1 });
   }
 
+  saveCart();
   renderCart();
 }
 
@@ -103,6 +108,7 @@ function removeFromCart(id) {
     return item.id !== id;
   });
 
+  saveCart();
   renderCart();
 }
 
@@ -122,6 +128,7 @@ function changeQuantity(id, delta) {
     return;
   }
 
+  saveCart();
   renderCart();
 }
 

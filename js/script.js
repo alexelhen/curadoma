@@ -11,6 +11,13 @@ const openOrderBtn = document.getElementById('open-order-form');
 const cartToggleBtn = document.getElementById('cart-toggle');
 const cartSection = document.getElementById('cart-section');
 
+const orderModal = document.getElementById('order-modal');
+const closeOrderModalBtn = document.getElementById('close-order-modal');
+const orderForm = document.getElementById('order-form');
+
+const successModal = document.getElementById('success-modal');
+const closeSuccessModalBtn = document.getElementById('close-success-modal');
+
 const orderInputs = document.querySelectorAll('#order-form input');
 
 function saveCart() {
@@ -156,6 +163,31 @@ cartItemsBox.addEventListener('click', function (event) {
 
 cartToggleBtn.addEventListener('click', function () {
   cartSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+openOrderBtn.addEventListener('click', function () {
+  orderModal.classList.add('modal--open');
+});
+
+closeOrderModalBtn.addEventListener('click', function () {
+  orderModal.classList.remove('modal--open');
+});
+
+orderForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  orderModal.classList.remove('modal--open');
+  orderForm.reset();
+
+  cart = [];
+  saveCart();
+  renderCart();
+
+  successModal.classList.add('modal--open');
+});
+
+closeSuccessModalBtn.addEventListener('click', function () {
+  successModal.classList.remove('modal--open');
 });
 
 orderInputs.forEach(function (input) {

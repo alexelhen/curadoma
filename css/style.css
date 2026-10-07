@@ -192,3 +192,73 @@ body {
   padding: 15px 0;
   margin-top: 40px;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal--open {
+  display: flex;
+}
+
+.modal__content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+}
+
+.modal__content--small {
+  max-width: 300px;
+  text-align: center;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+#order-form label {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+#order-form input {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+#order-form button {
+  margin-top: 15px;
+}
+
+.success-text {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
